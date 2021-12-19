@@ -20,7 +20,7 @@ args = parser.parse_args()
 
 # Read config file
 
-with open("owfs2influx.yaml") as conf:
+with open(args.config) as conf:
     config = yaml.load(conf, Loader=yaml.FullLoader)
 
 # Extract server/port and delete keys from config
