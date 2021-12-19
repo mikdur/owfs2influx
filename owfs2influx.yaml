@@ -1,0 +1,26 @@
+# Basic settings
+server: OWFS-SERVER
+port: 4304
+influx_server: http://influxdb2.server.address:8086
+bucket: influx_bucket
+token: influx_token
+influx_org: influx_organisation
+report_interval: 10
+
+
+# Define sensors to be read. Mapping of sensor IDs.
+# Key is sensor id, value is a mapping describing
+# the attributes to read, what influx field to use for the
+# sensor and tag assignments for the datapoints.
+#
+# When reading DS18x20 sensors, it is recommended
+# to use "/lateststemp", since owfs2influx begins
+# each cycle by triggering simultaneos temperature
+# conversion on all sensors. 
+
+10.F49913010800:
+  - attribute: /latesttemp
+    tags: 
+       grupp: klimat
+       plats: ute_syd 
+    field: temperature
